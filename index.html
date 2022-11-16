@@ -1,0 +1,95 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="/static/css/styles.css">
+{% endblock %}
+
+{% block title %}HAW{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+      <h1 class="display-4 subtitle">Hugo Award Winners</h1>
+        <p class="subtitle"></p>
+      <hr class="my-4">
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+        <h2>Get nominees and winners from every year</h2>
+        <h3><b>Documentation</b></h3>
+        <p>
+            In this API service, you can get the Hugo Award winners and nominees from all categories,
+            and every year since each has been established. <br>
+            We are currently working on the 'Retro Hugos', so this document will be updated in time.
+        </p>
+        <h4><b>One-for-all route</b></h4>
+        <p>
+            Every request on this site is worked using the route <b>"/request/{arguments}"</b>,
+            the arguments you'll need to use will be clear below.
+        </p>
+
+        <table class="styled-table">
+            <tr >
+                <th colspan="2" style="margin: 10px;">
+                    <h4><b>Arguments</b></h4>
+                </th>
+            </tr>
+            <tr style="border-bottom: 1px solid #333;">
+                <td class="table-cell">
+                    "/request/<b>{year}</b>..."
+                </td>
+                <td class="table-cell" style="padding-bottom: 10px; padding-top: 10px;">
+                    From <b>1953 to 2022.</b> Take on account that only Novel category started on 1953,
+                    the other categories started later.
+                </td>
+            </tr>
+            <tr style="border-bottom: 1px solid #333; ">
+                <td class="table-cell">
+                    "/request/1985<b>?category={category}</b>..."
+                </td>
+                <td class="table-cell" style="padding-bottom: 10px; padding-top: 10px;">
+                    We offer the 4 main categories of the Hugo Awards: <b>novel, novella, novelette, short_story.</b>
+                    All lowercase. Mind the <b>"_"</b> on short_story!
+                </td>
+            </tr>
+            <tr style="border-bottom: 1px solid #333; ">
+                <td class="table-cell">
+                    "/request/1985?category=novel<b>&api-key={your-secret-key}</b>"
+                </td>
+                <td class="table-cell" style="padding-bottom: 10px; padding-top: 10px;">
+                    You can get it down below, once you <b>sign up</b> by sharing an email.<br>
+                    <b>Note: We will never share your email with anyone.</b>
+                </td>
+            </tr>
+        </table>
+
+        <h4 style="margin-top: 40px;"><b>Results</b></h4>
+        <p>
+            When a request is done the right way, and the server has gathered the information,
+            the results are delivered in a Json format. Note that the winner is always the first result and is marked with an asterix.
+        </p>
+        <p>
+            <img src="/static/images/json.png" style="border-radius: 10px;">
+        </p>
+
+        <h4 style="margin-top: 40px;"><b>Get your API key</b></h4>
+        <p>
+            Share with us an email to gain instant access. <b>We will never share your information with anyone.</b>
+        </p>
+
+        <form action="{{url_for('your_key')}}" method="post">
+            <label>E-mail</label>
+            <br>
+            <input type="email" name="user" required>
+            <br>
+            <button type="submit" class="click">Sign me up</button>
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

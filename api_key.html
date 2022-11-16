@@ -1,0 +1,31 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="/static/css/styles.css">
+{% endblock %}
+
+{% block title %}API-KEY{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+      <h1 class="display-4 subtitle">Your Key</h1>
+        <p class="subtitle">Don't lose it!</p>
+      <hr class="my-4">
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+        <h1>{{password}}</h1>
+
+        <a href="{{url_for('home')}}">
+                <button type="button" class="click">Back</button>
+        </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

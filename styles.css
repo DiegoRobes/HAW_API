@@ -1,0 +1,50 @@
+.jumbotron{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: white;
+  background-color: #333;
+  padding: 0;
+}
+
+.subtitle{
+    text-align: left;
+}
+
+.container{
+    padding: 0px 25px 0px 25px;
+}
+
+.exp-div{
+    text-align: center;
+}
+
+.header{
+    padding: 10px;
+    background-color: #333;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-cell{
+    width: 50%;
+}
+
+.click{
+    color: #333;
+    margin: 10px 0px 60px 0px;
+    border: solid #333;
+    border-width: thin;
+    cursor: pointer;
+    position: relative;
+    background: white;
+    border-radius: 5px;
+    border-color: #333;
+    padding: 0 5px;
+}
+
+.click:hover{
+      background-color:#333;
+      color: white;
+      transition: 1s;
+}
